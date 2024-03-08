@@ -34,6 +34,7 @@
                 color: #5cb85f;
             }
             .custom-link {
+                font-size: 1rem;
                 color: #fff;
                 font-weight: 700;
                 background-color: #5cb85f;
@@ -104,7 +105,15 @@
             }
             @media (max-width: 991px) {
                 .custom-link {
-                    width: 20%;
+                    max-width: 20%;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+            @media (max-width: 467px) {
+                .custom-link {
+                    max-width: 35%;
                     display: block;
                     margin-left: auto;
                     margin-right: auto;

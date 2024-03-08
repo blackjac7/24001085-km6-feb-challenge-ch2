@@ -22,7 +22,7 @@ class App {
         let carElement = "";
         Car.list.forEach((car) => {
             carElement += `
-              <div class="col-lg-3 d-flex">
+              <div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center align-items-center">
                   <div class="card flex-column" style="width: 18rem">
                       <img
                           src="${car.image}"
@@ -92,7 +92,7 @@ class App {
         let carElement = "";
         filteredCars.forEach((car) => {
             carElement += `
-              <div class="col-lg-3 d-flex">
+              <div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center align-items-center">
                   <div class="card flex-column" style="width: 18rem">
                       <img
                           src="${car.image}"
