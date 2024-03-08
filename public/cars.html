@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sewa Mobil</title>
+        <link rel="icon" href="img/binar-icon.svg" type="image/x-icon" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+        <style>
+            @import url("https://fonts.cdnfonts.com/css/helvetica-neue-5");
+
+            body {
+                font-family: "Helvetica Neue", sans-serif;
+            }
+            label {
+                font-size: small;
+                font-weight: 300;
+                color: #3c3c3c;
+            }
+            .navbar-position {
+                margin-top: 10px;
+            }
+            .menu a {
+                font-size: regular;
+                font-weight: 400;
+                color: #000000;
+            }
+            .menu a:active {
+                color: #5cb85f;
+            }
+            .custom-link {
+                color: #fff;
+                font-weight: 700;
+                background-color: #5cb85f;
+                border-radius: 4px;
+                padding: 8px 12px 8px 12px;
+                border: 1px solid #5cb85f;
+            }
+            .custom-link:hover {
+                color: #5cb85f;
+                background-color: #fff;
+                border: 1px solid #5cb85f;
+            }
+            .custom-link:focus {
+                color: #fff;
+                background-color: #5cb85f;
+                border: 1px solid #5cb85f;
+            }
+            .sticky-top {
+                background-color: #f1f3ff;
+                border-bottom: 1px solid #e5e5e5;
+            }
+
+            .filter-box {
+                position: relative;
+                top: -50px;
+                background-color: #ffffff;
+                border: 1px solid #e5e5e5;
+                padding: 20px 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+                width: 90%;
+            }
+            #btn-cari {
+                width: 100%;
+                background-color: #5cb85f;
+                border: 1px solid #5cb85f;
+                color: #fff;
+                font-weight: 700;
+            }
+            #btn-cari:hover {
+                background-color: #fff;
+                color: #5cb85f;
+                border: 1px solid #5cb85f;
+            }
+            .btn-pilih {
+                width: 100%;
+                background-color: #5cb85f;
+                border: 1px solid #5cb85f;
+                color: #fff;
+                font-weight: 700;
+            }
+
+            .card-title {
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: #1a1a1a;
+            }
+            .price {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #1a1a1a;
+            }
+
+            .footer div a {
+                color: #000000;
+                font-weight: 400;
+                text-decoration: none;
+            }
+            @media (max-width: 991px) {
+                .custom-link {
+                    width: 20%;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg sticky-top">
+            <div class="container navbar-position">
+                <a class="navbar-brand" href="index.html"
+                    ><img
+                        width="180"
+                        height="100"
+                        class="img-fluid"
+                        src="img/logo.png"
+                        alt="logo"
+                /></a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    class="collapse navbar-collapse justify-content-end"
+                    id="navbarSupportedContent"
+                >
+                    <ul
+                        class="navbar-nav mb-2 mb-lg-0 column-gap-3 text-center"
+                    >
+                        <li class="nav-item menu">
+                            <a class="nav-link" href="#our-services"
+                                >Our Services</a
+                            >
+                        </li>
+                        <li class="nav-item menu">
+                            <a class="nav-link" href="#why-us">Why Us</a>
+                        </li>
+                        <li class="nav-item menu">
+                            <a class="nav-link" href="#testimonial"
+                                >Testimonial</a
+                            >
+                        </li>
+                        <li class="nav-item menu">
+                            <a class="nav-link" href="#faq">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn nav-link custom-link" href="#"
+                                >Register</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <div style="background-color: #f1f3ff">
+            <div class="container">
+                <div class="row py-4">
+                    <div class="col-md-6 my-auto ps-3 pe-4">
+                        <h1 class="pb-2">
+                            Sewa & Rental Mobil Terbaik di kawasan Tangerang
+                        </h1>
+                        <p class="pb-2 pe-4">
+                            Selamat datang di Binar Car Rental. Kami menyediakan
+                            mobil kualitas terbaik dengan harga terjangkau.
+                            Selalu siap melayani kebutuhanmu untuk sewa mobil
+                            selama 24 jam.
+                        </p>
+                    </div>
+                    <div class="col-md-6 car-img">
+                        <img
+                            src="img/img_car.png"
+                            alt="car"
+                            class="img-fluid"
+                            width="704"
+                            height="407"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <button id="load-btn">Load</button>
+        <button id="clear-btn">Clear</button> -->
+
+        <!-- Cari Mobil -->
+        <div class="container">
+            <div class="filter-box ms-auto me-auto" id="filter-form">
+                <div class="row pt-3">
+                    <div class="col-xl-10">
+                        <div class="row">
+                            <!-- Filter Input -->
+                            <div class="col-xl-3">
+                                <div class="input-group mb-3 row">
+                                    <div>
+                                        <label for="tipe-sopir"
+                                            >Tipe Driver</label
+                                        >
+                                    </div>
+                                    <div>
+                                        <select
+                                            required
+                                            name="tipe-sopir"
+                                            id="tipe-sopir"
+                                            class="form-select"
+                                        >
+                                            <option selected disabled>
+                                                Pilih Tipe Driver
+                                            </option>
+
+                                            <option value="sopir">
+                                                Dengan Sopir
+                                            </option>
+                                            <option value="tanpa-sopir">
+                                                Tanpa Sopir (Lepas Kunci)
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="input-group mb-3 row">
+                                    <div>
+                                        <label for="tanggal">Tanggal</label>
+                                    </div>
+                                    <div>
+                                        <input
+                                            id="tanggal"
+                                            required
+                                            type="date"
+                                            class="form-control"
+                                            aria-label="Tanggal Sewa"
+                                            aria-describedby="button-addon2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="input-group mb-3 row">
+                                    <div>
+                                        <label for="waktu-jemput"
+                                            >Waktu Jemput/Ambil</label
+                                        >
+                                    </div>
+                                    <div>
+                                        <select
+                                            required
+                                            name="waktu-jemput"
+                                            id="waktu-jemput"
+                                            class="form-select"
+                                        >
+                                            <option selected disabled>
+                                                Pilih Waktu
+                                            </option>
+
+                                            <option value="8">08:00</option>
+                                            <option value="9">09:00</option>
+                                            <option value="10">10:00</option>
+                                            <option value="11">11:00</option>
+                                            <option value="12">12:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="input-group mb-3 row">
+                                    <div>
+                                        <label
+                                            for="jumlah-penumpang"
+                                            style="
+                                                font-size: 12px;
+                                                font-weight: 300;
+                                                color: #3c3c3c;
+                                            "
+                                            >Jumlah Penumpang (optional)</label
+                                        >
+                                    </div>
+                                    <div>
+                                        <input
+                                            id="jumlah-penumpang"
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Jumlah Penumpang"
+                                            aria-label="Jumlah Penumpang"
+                                            aria-describedby="button-addon2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="input-group mb-3">
+                            <button
+                                class="btn btn-success mt-4"
+                                type="submit"
+                                id="btn-cari"
+                            >
+                                Cari Mobil
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card list -->
+        <div class="container">
+            <div class="row g-4" id="car-card">
+                <!-- <div class="col-md-4">
+                    <div class="card" style="width: 18rem">
+                        <img
+                            src="images/car01.min.jpg"
+                            class="card-img-top"
+                            alt="car-img"
+                        />
+                        <div class="card-body">
+                            <h5 class="card-title">Nama/Tipe Mobil</h5>
+                            <p class="card-text price">Rp 430.000 / hari</p>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua.
+                            </p>
+                            <p>
+                                <img src="img/fi_users.png" alt="users" /><span
+                                    class="ps-2"
+                                    >4 orang</span
+                                >
+                            </p>
+                            <p>
+                                <img
+                                    src="img/fi_settings.png"
+                                    alt="users"
+                                /><span class="ps-2">Manual</span>
+                            </p>
+                            <p>
+                                <img
+                                    src="img/fi_calendar.png"
+                                    alt="users"
+                                /><span class="ps-2">Tahun 2020</span>
+                            </p>
+                            <a href="#" class="btn btn-success btn-pilih"
+                                >Pilih Mobil</a
+                            >
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-3 p-2 pt-3">
+                    <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+                    <p>binarcarrental@gmail.com</p>
+                    <p>081-233-334-808</p>
+                </div>
+                <div class="col-md-3 p-2 footer">
+                    <div class="p-2">
+                        <a href="#our-services">Our Services</a>
+                    </div>
+                    <div class="p-2">
+                        <a href="#why-us">Why Us</a>
+                    </div>
+                    <div class="p-2">
+                        <a href="#testimonial">Testimonial</a>
+                    </div>
+                    <div class="p-2">
+                        <a href="#faq">FAQ</a>
+                    </div>
+                </div>
+                <div class="col-md-3 p-2">
+                    <div>
+                        <p>Connect with us</p>
+                    </div>
+                    <div>
+                        <a href="#"
+                            ><img
+                                class="pe-2"
+                                src="img/icon_facebook.png"
+                                alt="fb"
+                        /></a>
+                        <a href="#"
+                            ><img
+                                class="pe-2"
+                                src="img/icon_instagram.png"
+                                alt="ig"
+                        /></a>
+                        <a href="#">
+                            <img
+                                class="pe-2"
+                                src="img/icon_twitter.png"
+                                alt="twt"
+                            />
+                        </a>
+                        <a href="#"
+                            ><img
+                                class="pe-2"
+                                src="img/icon_mail.png"
+                                alt="mail"
+                        /></a>
+                        <a href="#"
+                            ><img
+                                class="pe-2"
+                                src="img/icon_twitch.png"
+                                alt="twc"
+                        /></a>
+                    </div>
+                </div>
+                <div class="col-md-3 p-2">
+                    <div>
+                        <p>Copyright Binar 2024</p>
+                    </div>
+                    <div>
+                        <img
+                            src="img/logo.png"
+                            alt="logo"
+                            width="180"
+                            height="100"
+                            class="img-fluid"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+        <script></script>
+        <script type="text/javascript" src="./scripts/binar.js"></script>
+        <script type="text/javascript" src="./scripts/app.example.js"></script>
+        <script type="text/javascript" src="./scripts/car.example.js"></script>
+        <script type="text/javascript" src="./scripts/main.example.js"></script>
+    </body>
+</html>
