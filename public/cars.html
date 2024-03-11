@@ -22,6 +22,11 @@
                 font-weight: 300;
                 color: #3c3c3c;
             }
+            input:focus,
+            select:focus {
+                border-color: #5cb85f !important;
+                box-shadow: 0 0 0 0.25rem rgba(92, 184, 95, 0.25) !important;
+            }
             .navbar-position {
                 margin-top: 10px;
             }
@@ -102,6 +107,9 @@
                 color: #000000;
                 font-weight: 400;
                 text-decoration: none;
+            }
+            .swal2-confirm {
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
             }
             @media (max-width: 991px) {
                 .custom-link {
@@ -211,7 +219,7 @@
 
         <!-- Cari Mobil -->
         <div class="container">
-            <div class="filter-box ms-auto me-auto" id="filter-form">
+            <form class="filter-box ms-auto me-auto" id="filter-form">
                 <div class="row pt-3">
                     <div class="col-xl-10">
                         <div class="row">
@@ -225,12 +233,11 @@
                                     </div>
                                     <div>
                                         <select
-                                            required
                                             name="tipe-sopir"
                                             id="tipe-sopir"
                                             class="form-select"
                                         >
-                                            <option selected disabled>
+                                            <option value="" selected disabled>
                                                 Pilih Tipe Driver
                                             </option>
 
@@ -252,7 +259,6 @@
                                     <div>
                                         <input
                                             id="tanggal"
-                                            required
                                             type="date"
                                             class="form-control"
                                             aria-label="Tanggal Sewa"
@@ -270,12 +276,11 @@
                                     </div>
                                     <div>
                                         <select
-                                            required
                                             name="waktu-jemput"
                                             id="waktu-jemput"
                                             class="form-select"
                                         >
-                                            <option selected disabled>
+                                            <option value="" selected disabled>
                                                 Pilih Waktu
                                             </option>
 
@@ -298,7 +303,10 @@
                                                 font-weight: 300;
                                                 color: #3c3c3c;
                                             "
-                                            >Jumlah Penumpang (optional)</label
+                                            >Jumlah Penumpang
+                                            <span style="font-size: 8px"
+                                                >(optional)</span
+                                            ></label
                                         >
                                     </div>
                                     <div>
@@ -327,7 +335,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
 
         <!-- Card list -->
@@ -457,7 +465,7 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"
         ></script>
-        <script></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script type="text/javascript" src="./scripts/binar.js"></script>
         <script type="text/javascript" src="./scripts/app.example.js"></script>
         <script type="text/javascript" src="./scripts/car.example.js"></script>

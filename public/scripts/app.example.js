@@ -4,14 +4,14 @@ class App {
         this.loadButton = document.getElementById("load-btn");
         this.carCard = document.getElementById("car-card");
         this.filterForm = document.getElementById("filter-form");
-        this.filterInputs = Array.from(
-            this.filterForm.querySelectorAll("input, select")
-        );
     }
 
     async init() {
         await this.load();
-        this.filterForm.addEventListener("input", this.filterCars);
+        this.filterForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            this.filterCars();
+        });
 
         // // Register click listener
         // this.clearButton.onclick = this.clear;
@@ -34,7 +34,7 @@ class App {
                       <div class="card-body flex-grow-1">
                           <h5 class="card-title">${car.manufacture} ${car.model}</h5>
                           <p class="card-text price">Rp ${car.rentPerDay} / hari</p>
-                          <p class="card-text" style="height: 7rem">
+                          <p class="card-text" style="height: 6rem">
                               ${car.description}
                           </p>
                           <p>
@@ -66,13 +66,41 @@ class App {
         this.carCard.innerHTML = carElement;
     };
 
+    showError = (message) => {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: message,
+            confirmButtonColor: "#d63031",
+        });
+    };
+
     filterCars = () => {
         const filteredCars = Car.list.filter((car) => {
+            const driverType =
+                this.filterForm.querySelector("#tipe-sopir").value;
             const date = this.filterForm.querySelector("#tanggal").value;
+            const pickupTime =
+                this.filterForm.querySelector("#waktu-jemput").value;
             const passengerCount =
                 this.filterForm.querySelector("#jumlah-penumpang").value;
             const numPassengerCount = Number(passengerCount);
             let carCapacity = Number(car.capacity);
+
+            if (!driverType) {
+                this.showError("Tipe Driver tidak boleh kosong");
+                return;
+            }
+
+            if (!date) {
+                this.showError("Tanggal tidak boleh kosong");
+                return;
+            }
+
+            if (!pickupTime) {
+                this.showError("Waktu jemput tidak boleh kosong");
+                return;
+            }
 
             if (date && new Date(car.availableAt) > new Date(date)) {
                 return false;
@@ -103,7 +131,7 @@ class App {
                       <div class="card-body flex-grow-1">
                           <h5 class="card-title">${car.manufacture} ${car.model}</h5>
                           <p class="card-text price">Rp ${car.rentPerDay} / hari</p>
-                          <p class="card-text" style="height: 7rem">
+                          <p class="card-text" style="height: 6rem">
                               ${car.description}
                           </p>
                           <p>
