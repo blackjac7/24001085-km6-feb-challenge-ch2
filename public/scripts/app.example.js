@@ -92,7 +92,6 @@ class App {
     }
 
     async load() {
-        console.log("masuk load");
         const cars = await Binar.listCars();
         Car.init(cars);
     }
