@@ -19,51 +19,13 @@ class App {
     }
 
     run = () => {
-        let carElement = "";
         Car.list.forEach((car) => {
-            carElement += `
-              <div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center align-items-center">
-                  <div class="card flex-column" style="width: 18rem">
-                      <img
-                          src="${car.image}"
-                          class="card-img-top"
-                          alt="car-img"
-                          style="width: 100%; height: 200px; object-fit: cover;"
-
-                      />
-                      <div class="card-body flex-grow-1">
-                          <h5 class="card-title">${car.manufacture} ${car.model}</h5>
-                          <p class="card-text price">Rp ${car.rentPerDay} / hari</p>
-                          <p class="card-text" style="height: 6rem">
-                              ${car.description}
-                          </p>
-                          <p>
-                              <img src="img/fi_users.png" alt="users" /><span
-                                  class="ps-2"
-                                  >${car.capacity}</span
-                              >
-                          </p>
-                          <p>
-                              <img
-                                  src="img/fi_settings.png"
-                                  alt="users"
-                              /><span class="ps-2">${car.transmission}</span>
-                          </p>
-                          <p>
-                              <img
-                                  src="img/fi_calendar.png"
-                                  alt="users"
-                              /><span class="ps-2">Tahun ${car.year}</span>
-                          </p>
-                          <a href="#" class="btn btn-success btn-pilih"
-                              >Pilih Mobil</a
-                          >
-                      </div>
-                  </div>
-              </div>
-        `;
+            const div = document.createElement("div");
+            div.className =
+                "col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center align-items-center";
+            div.innerHTML = car.render();
+            this.carCard.appendChild(div);
         });
-        this.carCard.innerHTML = carElement;
     };
 
     showError = (message) => {
@@ -87,6 +49,7 @@ class App {
             const numPassengerCount = Number(passengerCount);
             let carCapacity = Number(car.capacity);
 
+            // * Validate form input
             if (!driverType) {
                 this.showError("Tipe Driver tidak boleh kosong");
                 return;
@@ -102,6 +65,7 @@ class App {
                 return;
             }
 
+            // * Filter cars based on form input
             if (date && new Date(car.availableAt) > new Date(date)) {
                 return false;
             }
@@ -112,69 +76,33 @@ class App {
 
             return true;
         });
-
+        // * Clear the car card before displaying the filtered cars
+        this.clear();
         this.displayCars(filteredCars);
     };
 
     displayCars(filteredCars) {
-        let carElement = "";
         filteredCars.forEach((car) => {
-            carElement += `
-              <div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center align-items-center">
-                  <div class="card flex-column" style="width: 18rem">
-                      <img
-                          src="${car.image}"
-                          class="card-img-top"
-                          alt="car-img"
-                          style="width: 100%; height: 200px; object-fit: cover;"
-                      />
-                      <div class="card-body flex-grow-1">
-                          <h5 class="card-title">${car.manufacture} ${car.model}</h5>
-                          <p class="card-text price">Rp ${car.rentPerDay} / hari</p>
-                          <p class="card-text" style="height: 6rem">
-                              ${car.description}
-                          </p>
-                          <p>
-                              <img src="img/fi_users.png" alt="users" /><span
-                                  class="ps-2"
-                                  >${car.capacity}</span
-                              >
-                          </p>
-                          <p>
-                              <img
-                                  src="img/fi_settings.png"
-                                  alt="users"
-                              /><span class="ps-2">${car.transmission}</span>
-                          </p>
-                          <p>
-                              <img
-                                  src="img/fi_calendar.png"
-                                  alt="users"
-                              /><span class="ps-2">Tahun ${car.year}</span>
-                          </p>
-                          <a href="#" class="btn btn-success btn-pilih"
-                              >Pilih Mobil</a
-                          >
-                      </div>
-                  </div>
-              </div>
-        `;
+            const div = document.createElement("div");
+            div.className =
+                "col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center align-items-center";
+            div.innerHTML = car.render();
+            this.carCard.appendChild(div);
         });
-        this.carCard.innerHTML = carElement;
     }
 
     async load() {
+        console.log("masuk load");
         const cars = await Binar.listCars();
         Car.init(cars);
-        this.displayCars(Car.list);
     }
 
     clear = () => {
-        let child = this.carContainerElement.firstElementChild;
+        let child = this.carCard.firstElementChild;
 
         while (child) {
             child.remove();
-            child = this.carContainerElement.firstElementChild;
+            child = this.carCard.firstElementChild;
         }
     };
 }
